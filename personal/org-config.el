@@ -1,20 +1,23 @@
 (setf appt-display-interval 5)
 
+(setf org-agenda-include-diary t)
+
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
+      '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Global")
          "* TODO %?\n  %i\n  %a")
-        ("c" "Clocked Todo" entry (file+headline "~/org/gtd.org" "Tasks")
+        ("c" "Clocked Todo" entry (file+headline "~/org/gtd.org" "Global")
          "* TODO %?\n  %i\n  %a" :clock-in t)
-        ("e" "Emacs Idea" entry (file+headline "~/org/gtd.org" "Emacs Ideas")
-         "* TODO %?\n  %i\n  %a")
         ("m" "Misc" entry (file+headline "~/org/gtd.org" "Misc")
          "* TODO %?\n  %i\n  %a")
         ("j" "Journal" entry (file+datetree "~/org/journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")
         ("r" "Remember this" entry (file+datetree "~/org/remember.org")
-         "* %?\nEntered on %U\n  %i\n  %a")))
+         "* %?\nEntered on %U\n  %i\n  %a\nSCHEDULED: %^t")
+        ("a" "Appointment" plain (file "~/.emacs.d/diary")
+         "%<%b %d, %Y> %?")))
 
-(setq org-agenda-files '("~/org/" "~/.org-jira/"))
+(setq org-agenda-files '("~/org/"))
+(setq org-refile-targets '((org-agenda-files . (:level . 1))))
 (eval-after-load "org"
   (lambda ()
     (org-defkey org-mode-map (kbd "RET") 'org-meta-return)

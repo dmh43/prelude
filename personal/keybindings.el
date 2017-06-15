@@ -91,9 +91,9 @@
     (define-key map (kbd "s-5") 'make-frame-command)
     (define-key map (kbd "s-<backspace>") 'winner-undo)
     (define-key map (kbd "s-f") 'helm-projectile-find-file)
-    (define-key map (kbd "<f9> c") 'calendar)
-    (define-key map (kbd "<f9> o") 'dh-make-org-scratch)
-    (define-key map (kbd "<f9> n") 'org-narrow-to-subtree)
+    (define-key map (kbd "<f8> c") 'calendar)
+    (define-key map (kbd "<f8> o") 'dh-make-org-scratch)
+    (define-key map (kbd "<f8> n") 'org-narrow-to-subtree)
     map)
   "my-keys-minor-mode keymap.")
 

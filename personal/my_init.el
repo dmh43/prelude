@@ -21,6 +21,7 @@
 (require 'test-switcher)
 (require 'god-mode)
 (require 'harp-mode)
+(require 'emacs-tertestrial)
 
 (which-key-mode)
 (setq enable-recursive-minibuffers t)

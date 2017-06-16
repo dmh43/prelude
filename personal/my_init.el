@@ -84,6 +84,8 @@
 
 (add-hook 'comint-mode-hook 'turn-off-show-smartparens-mode)
 
+(setf sp-highlight-pair-overlay nil)
+
 (beacon-mode -1)
 
 (setq ivy-re-builders-alist

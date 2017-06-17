@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: org src
+# key: src
+# --
+#+begin_src ${1:$$(yas-choose-value '("emacs-lisp" "sh" "shell" "mathematica" "lisp" "R" "python" "ocaml" "matlab" "dot" "C" "C++"))} ${2::includes '(${3:<iostream>})} ${4::var ${5:foobnar}=${6:batz}} ${7::file ${8:(org-babel-temp-file "./figure-" ".png")}} :results ${9:$$(yas-choose-value '("silent" "replace" "append" "prepend" "output" "output table" "output scalar" "output file" "output

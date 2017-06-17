@@ -38,6 +38,8 @@
                  (emacs-lisp-byte-compile)))
              t)
 
+(setf yas/snippet-dirs '("~/.emacs.d/snippets"))
+
 (define-minor-mode code-review-mode
   (if code-review-mode
       (progn

@@ -63,7 +63,7 @@
                                                          (stan . t)))
 
 (setq org-agenda-files '("~/org/"))
-(setq org-refile-targets '((org-agenda-files . (:level . 1))))
+(setq org-refile-targets '((org-agenda-files . (:level . 2))))
 (eval-after-load "org"
   (lambda ()
     (org-defkey org-mode-map (kbd "RET") 'org-meta-return)

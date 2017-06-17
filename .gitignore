@@ -24,3 +24,5 @@ tramp
 /vendor/
 .emacs.desktop
 .emacs.desktop.lock
+smex-items
+/smex-items

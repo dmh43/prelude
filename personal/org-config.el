@@ -66,6 +66,7 @@
 (setq org-refile-targets '((org-agenda-files . (:level . 2))))
 (eval-after-load "org"
   (lambda ()
+    (org-defkey org-mode-map (kbd "s-<tab>") 'outline-hide-subtree)
     (org-defkey org-mode-map (kbd "RET") 'org-meta-return)
     (org-defkey org-mode-map (kbd "C-M-u") 'org-up-element)
     (org-defkey org-mode-map (kbd "C-M-d") 'org-down-element)

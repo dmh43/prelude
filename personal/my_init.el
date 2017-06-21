@@ -57,6 +57,23 @@
 (add-hook 'file-file-hook 'crux-reopen-as-root)
 ;;(add-hook 'prelude-prog-mode-hook 'paredit-everywhere-mode t)
 
+(require 'ansi-color)
+(defun dh-display-ansi-colors ()
+  (interactive)
+  (ansi-color-apply-on-region (point-min) (point-max)))
+
+(defun dh-get-weather ()
+  (interactive)
+  (with-temp-buffer
+    (shell-command "curl wttr.in" "*weather*")
+    (switch-to-buffer "*weather*")
+    (mark-whole-buffer)
+    (dh-display-ansi-colors)
+    (deactivate-mark)
+    (read-only-mode)
+    (delete-other-windows)
+    (beginning-of-buffer)))
+
 (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
 
 (require 'projectile)

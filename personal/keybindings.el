@@ -95,6 +95,8 @@
     (define-key map (kbd "<f8> c") 'calendar)
     (define-key map (kbd "<f8> o") 'dh-make-org-scratch)
     (define-key map (kbd "<f8> n") 'org-narrow-to-subtree)
+    (define-key map (kbd "<f8> t") 'org-clock-in)
+    (define-key map (kbd "<f8> s") 'org-search-view)
     (define-key map (kbd "M-'") 'dh-isearch-symbol-at-point-smart)
     map)
   "my-keys-minor-mode keymap.")

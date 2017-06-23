@@ -39,6 +39,8 @@
                  (emacs-lisp-byte-compile)))
              t)
 
+(mapc 'diminish '(editorconfig-mode helm-mode company-mode cider-mode projectile-mode))
+
 (setf yas/snippet-dirs '("~/.emacs.d/snippets"))
 
 (define-minor-mode code-review-mode
@@ -122,7 +124,7 @@
 
 (toggle-scroll-bar -1)
 
-(guru-global-mode -1)
+(setq prelude-guru nil)
 
 (setf expand-region-fast-keys-enabled nil)
 

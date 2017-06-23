@@ -110,9 +110,6 @@
   :lighter "")
 
 (my-keys-minor-mode 1)
-(diminish 'editorconfig-mode)
-(diminish 'helm-mode)
-(diminish 'company-mode)
 
 (require 'crux)
 (defun better-kill-line (&optional arg)

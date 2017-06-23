@@ -98,6 +98,8 @@
     (define-key map (kbd "<f8> t") 'org-clock-in)
     (define-key map (kbd "<f8> s") 'org-search-view)
     (define-key map (kbd "M-'") 'dh-isearch-symbol-at-point-smart)
+    (define-key map (kbd "<f8> e") 'org-clock-out)
+    (define-key map (kbd "<f8> f") 'org-search-view)
     (define-key map (kbd "s-u") 'revert-buffer)
     map)
   "my-keys-minor-mode keymap.")

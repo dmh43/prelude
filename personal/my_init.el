@@ -15,6 +15,7 @@
 (load "stump-config.el")
 (load "os-config.el")
 (load "cl.el")
+(load "my-secrets.el")
 
 (require 'which-key)
 (require 'modalka)

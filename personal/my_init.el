@@ -123,6 +123,7 @@
                                         (horizontal-scroll-bars . nil)))))
 
 (toggle-scroll-bar -1)
+(which-function-mode -1)
 
 (setq prelude-guru nil)
 

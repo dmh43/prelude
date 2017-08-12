@@ -32,6 +32,8 @@
 (define-key term-raw-map (kbd "C-b") 'backward-char)
 (define-key term-raw-map (kbd "C-b") 'backward-char)
 
+(require 'smartparens)
+
 (defvar my-keys-minor-mode-map
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-c DEL") 'winner-undo)
@@ -43,7 +45,7 @@
     (define-key map (kbd "S-s-j") 'buf-move-down)
     (define-key map (kbd "s-h") 'windmove-left)
     (define-key map (kbd "s-l") 'windmove-right)
-    (define-key map (kbd "s-k") 'windmove-up)
+    (define-key map (kbd "s-k") 'sp-kill-hybrid-sexp)
     (define-key map (kbd "s-j") 'windmove-down)
     (define-key map (kbd "s-n") 'next-line)
     (define-key map (kbd "s-p") 'previous-line)
@@ -198,6 +200,7 @@
 
 (define-key dired-mode-map (kbd "TAB") 'dired-subtree-toggle)
 
+(require 'company)
 (define-key company-active-map (kbd "<escape>") 'company-abort)
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)

@@ -1,6 +1,6 @@
 (add-to-list 'load-path "~/.emacs.d/personal")
 (load "helpers.el")
-(load "js.el")
+(load "js-config.el")
 (load "keybindings.el")
 (load "keychords.el")
 (load "gnus-config.el")
@@ -14,7 +14,7 @@
 (load "yas-conf.el")
 (load "stump-config.el")
 (load "os-config.el")
-(load "cl.el")
+(load "cl-config.el")
 (load "my-secrets.el")
 
 (require 'which-key)

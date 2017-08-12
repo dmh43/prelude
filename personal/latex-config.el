@@ -1,3 +1,4 @@
+(require 'latex)
 (define-key LaTeX-mode-map (kbd "C-M-;")
   (lambda (start end)
     (interactive "r")

@@ -1,3 +1,4 @@
+(require 'flycheck)
 (setq-default flycheck-disabled-checkers
               (append flycheck-disabled-checkers
                       '(javascript-jshint)))
@@ -41,4 +42,4 @@
               "\\)"))
 
 
-(provide 'js)
+(provide 'js-config)

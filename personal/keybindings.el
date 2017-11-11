@@ -1,5 +1,5 @@
 (require 'god-mode)
-(require 'dh)
+;;(require 'dh)
 
 (define-key key-translation-map (kbd "C-?") (kbd "C-h"))
 (define-key key-translation-map (kbd "C-h") (kbd "DEL"))
@@ -99,7 +99,10 @@
     (define-key map (kbd "<f8> n") 'org-narrow-to-subtree)
     (define-key map (kbd "<f8> t") 'org-clock-in)
     (define-key map (kbd "<f8> s") 'org-search-view)
-    (define-key map (kbd "M-'") 'dh-isearch-symbol-at-point-smart)
+    (define-key map (kbd "<f8> i") (lambda (&optional arg)
+                                     (interactive)
+                                     (find-file "~/org/gtd.org")))
+    ;; (define-key map (kbd "M-'") 'dh-isearch-symbol-at-point-smart)
     (define-key map (kbd "<f8> e") 'org-clock-out)
     (define-key map (kbd "<f8> f") 'org-search-view)
     (define-key map (kbd "s-u") 'revert-buffer)
@@ -215,7 +218,7 @@
 (global-unset-key (kbd "s-e"))
 (global-unset-key (kbd "s-r"))
 
-(global-set-key (kbd "s-e") (lambda () (interactive) (scroll-up-command 3)))
+(define-key prelude-mode-map (kbd "s-e") (lambda () (interactive) (scroll-up-command 3)))
 (define-key prelude-mode-map (kbd "s-r") (lambda () (interactive) (scroll-down-command 3)))
 
 (define-key prelude-mode-map (kbd "s-h") nil)

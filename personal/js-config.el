@@ -1,7 +1,7 @@
 (require 'flycheck)
 (setq-default flycheck-disabled-checkers
               (append flycheck-disabled-checkers
-                      '(javascript-jshint)))
+                      '(javascript-jshint emacs-lisp-checkdoc)))
 
 (flycheck-add-mode 'javascript-eslint 'js2-mode)
 

@@ -1,7 +1,7 @@
 (require 'key-chord)
 
 (key-chord-mode 1)
-(key-chord-define-global "qq" 'helm-mini)
+(key-chord-define-global "qq" 'ivy-switch-buffer)
 (key-chord-define-global "qw" 'helm-imenu)
 (key-chord-define-global "qp" 'helm-projectile-switch-project)
 (key-chord-define-global "qf" 'helm-projectile-find-file)
@@ -37,7 +37,7 @@
 (key-chord-define-global "`5" 'make-frame-command)
 (key-chord-define-global "qk" 'kill-buffer)
 
-(key-chord-define-global ";'" 'helm-escreen-select-escreen)
+(key-chord-define-global ";\\" 'helm-escreen-select-escreen)
 
 (key-chord-define-global "uu" 'undo-tree-undo)
 (key-chord-define-global "yy" 'undo-tree-redo)

@@ -5,18 +5,23 @@
 (setf org-agenda-include-diary t)
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Global")
+      '(("t" "Todo" entry (file+headline "~/org/gtd.org" "unfiled")
          "* TODO %?\n  %i\n  %a")
-        ("c" "Clocked Todo" entry (file+headline "~/org/gtd.org" "Global")
+        ("a" "Ask about" entry (file+headline "~/org/gtd.org" "Ask about")
+         "* %?\n  %i\n  %a")
+        ("r" "Review" entry (file+headline "~/org/gtd.org" "Review")
+         "* TODO %?\n  %i\n  %a")
+        ("c" "Clocked Todo" entry (file+headline "~/org/gtd.org" "unfiled")
          "* TODO %?\n  %i\n  %a" :clock-in t)
         ("m" "Misc" entry (file+headline "~/org/gtd.org" "Misc")
          "* TODO %?\n  %i\n  %a")
         ("j" "Journal" entry (file+datetree "~/org/journal.org")
          "* %?\nEntered on %U\n  %i\n  %a")
-        ("r" "Remember this" entry (file+datetree "~/org/remember.org")
-         "* %?\nEntered on %U\n  %i\n  %a\nSCHEDULED: %^t")
-        ("a" "Appointment" plain (file "~/.emacs.d/diary")
-         "%<%b %d, %Y> %?")))
+        ;; ("r" "Remember this" entry (file+datetree "~/org/remember.org")
+        ;;  "* %?\nEntered on %U\n  %i\n  %a\nSCHEDULED: %^t")
+        ;; ("a" "Appointment" plain (file "~/.emacs.d/diary")
+        ;;  "%<%b %d, %Y> %?")
+        ))
 
 (org-babel-do-load-languages 'org-babel-load-languages '((awk . t)
                                                          (C . t)
@@ -53,7 +58,7 @@
                                                          (sqlite . t)))
 
 (setq org-agenda-files '("~/org/"))
-(setq org-refile-targets '((org-agenda-files . (:level . 2))))
+(setq org-refile-targets '((org-agenda-files . (:maxlevel . 2))))
 (eval-after-load "org"
   (lambda ()
     (org-defkey org-mode-map (kbd "s-<tab>") 'outline-hide-subtree)

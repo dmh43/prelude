@@ -16,6 +16,8 @@
 (load "os-config.el")
 (load "cl-config.el")
 (load "my-secrets.el")
+(load "ocaml-config.el")
+(load "octave-config.el")
 
 (require 'which-key)
 (require 'modalka)
@@ -96,13 +98,40 @@
 
 (setq company-tooltip-flip-when-above nil)
 
-(advice-add 'save-buffer :before 'whitespace-cleanup)
+(setf prelude-clean-whitespace-on-save nil)
+(require 'ws-butler)
+(setf ws-butler-keep-whitespace-before-point nil)
+(ws-butler-global-mode)
+(add-to-list 'ws-butler-global-exempt-modes 'org-mode)
+
 (advice-add 'delete-window :before
-            (lambda (&optional window)
-              (when (buffer-file-name) (save-buffer))))
+            (lambda (&optional window) (prelude-auto-save-command)))
+(advice-add 'select-window :before
+            (lambda (window &optional norecord) (prelude-auto-save-command)))
 (advice-add 'other-frame :before
-            (lambda (&optional window)
-              (when (buffer-file-name) (save-buffer))))
+            (lambda (arg) (prelude-auto-save-command)))
+
+(setf browse-url-browser-function 'browse-url-chromium)
+
+(setq tramp-default-method "ssh")
+(setq tramp-auto-save-directory "~/tmp/tramp/")
+(tramp-set-completion-function "ssh"
+                               '((tramp-parse-sconfig "~/.ssh/config")))
+(setq tramp-chunksize 2000)
+(setq tramp-ssh-controlmaster-options
+      (concat
+       "-o ControlPath=/tmp/ssh-ControlPath-%%r@%%h:%%p "
+       "-o ControlMaster=auto -o ControlPersist=yes"))
+
+(defvar s3-bucket)
+(defun s3cmd-put (filepath)
+  (start-process "s3put" nil "s3cmd" "put" filepath s3-bucket))
+
+(advice-add 'save-buffer :after
+            (lambda (&optional arg)
+              (when (and (boundp 's3-bucket)
+                         (buffer-file-name))
+                (s3cmd-put (buffer-file-name)))))
 
 (add-hook 'comint-mode-hook 'turn-off-show-smartparens-mode)
 

@@ -18,6 +18,7 @@
 (load "my-secrets.el")
 (load "ocaml-config.el")
 (load "octave-config.el")
+(load "cuda-config.el")
 
 (require 'which-key)
 (require 'modalka)

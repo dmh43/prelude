@@ -132,7 +132,12 @@
             (lambda (&optional arg)
               (when (and (boundp 's3-bucket)
                          (buffer-file-name))
-                (s3cmd-put (buffer-file-name)))))
+                (s3cmd-put (buffer-file-name)))
+              (when (and (buffer-file-name)
+                         (cl-search "gtd.org" (buffer-file-name)))
+                (progn
+                 (org-html-export-to-html)
+                 (s3cmd-put (replace-regexp-in-string "gtd.org" "gtd.html" (buffer-file-name)))))))
 
 (add-hook 'comint-mode-hook 'turn-off-show-smartparens-mode)
 

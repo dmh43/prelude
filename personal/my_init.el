@@ -19,6 +19,7 @@
 (load "ocaml-config.el")
 (load "octave-config.el")
 (load "cuda-config.el")
+(load "python-config.el")
 
 (require 'which-key)
 (require 'modalka)
@@ -112,7 +113,7 @@
 (advice-add 'other-frame :before
             (lambda (arg) (prelude-auto-save-command)))
 
-(setf browse-url-browser-function 'browse-url-chromium)
+(setf browse-url-browser-function 'browse-url-firefox)
 
 (setq tramp-default-method "ssh")
 (setq tramp-auto-save-directory "~/tmp/tramp/")
@@ -126,7 +127,7 @@
 
 (defvar s3-bucket)
 (defun s3cmd-put (filepath)
-  (start-process "s3put" nil "s3cmd" "put" filepath s3-bucket))
+  (start-process "googlecloadput" nil "~/Downloads/google-cloud-sdk/bin/gsutil" "rsync" "/home/dany/org" "gs://dmh-org/"))
 
 (advice-add 'save-buffer :after
             (lambda (&optional arg)

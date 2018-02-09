@@ -1,8 +1,37 @@
-(setf appt-display-interval 5)
+(require 'org)
 
 (setf diary-file "~/org/diary")
 
 (setf org-agenda-include-diary t)
+
+(require 'appt)
+(setf appt-time-msg-list nil)
+(setf appt-display-interval '2)
+(setf appt-message-warning-time '10  ;; send first warning 10 minutes before appointment
+      appt-display-format 'window)   ;; pass warnings to the designated window function
+(appt-activate 1)
+
+(org-agenda-to-appt)
+(run-at-time "24:01" 3600 'org-agenda-to-appt)           ;; update appt list hourly
+(add-hook 'org-finalize-agenda-hook 'org-agenda-to-appt) ;; update appt list on agenda view
+
+;; set up the call to terminal-notifier
+(defvar my-notifier-path "notify-send")
+(defun my-appt-send-notification (title msg)
+  (shell-command
+   (concat my-notifier-path " -u normal " msg " " title)))
+
+(defun my-appt-display (min-to-app new-time msg)
+  (my-appt-send-notification
+   (format "'Appointment in %s minutes'" min-to-app)
+   (format "'%s'" msg)))
+
+(setq appt-disp-window-function (function my-appt-display))
+
+(setf org-clock-persist 'history)
+(org-clock-persistence-insinuate)
+
+(setf org-clock-into-drawer 3)
 
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/org/gtd.org" "unfiled")
@@ -21,8 +50,9 @@
          "* TODO %?\n %i\n %a\n")
         ;; ("r" "Remember this" entry (file+datetree "~/org/remember.org")
         ;;  "* %?\nEntered on %U\n  %i\n  %a\nSCHEDULED: %^t")
-        ;; ("a" "Appointment" plain (file "~/.emacs.d/diary")
-        ;;  "%<%b %d, %Y> %?")
+        ("s" "Appointment" entry
+         (file+headline "~/org/gtd.org" "Appointments")
+         "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t) t)")
         ))
 
 (org-babel-do-load-languages 'org-babel-load-languages '((awk . t)

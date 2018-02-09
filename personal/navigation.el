@@ -24,12 +24,12 @@
 
 (defun mark-to-end-of-paragraph (&optional arg)
   (interactive "p")
-  (call-interactively 'set-mark-command)
+  (set-mark (point))
   (call-interactively 'mark-paragraph))
 
 (defun kill-to-end-of-sexp (&optional arg)
   (interactive "p")
-  (call-interactively 'set-mark-command)
+  (set-mark (point))
   (call-interactively 'sp-up-sexp)
   (call-interactively 'backward-char)
   (call-interactively 'kill-region))

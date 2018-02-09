@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: numpy
+# key: numpy
+# --
+import numpy as np
+import numpy.linalg as la
+import matplotlib.pyplot as plt
+
+def main():
+  pass
+
+if __name__ == "__main__": main()

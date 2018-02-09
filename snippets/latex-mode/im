@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: im
+# key: im
+# --
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.5]{$1}
+  \caption{$2}
+\end{figure}

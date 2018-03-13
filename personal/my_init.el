@@ -20,6 +20,7 @@
 (load "octave-config.el")
 (load "cuda-config.el")
 (load "python-config.el")
+(load "lang-config.el")
 
 (require 'which-key)
 (require 'modalka)

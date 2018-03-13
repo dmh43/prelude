@@ -27,6 +27,8 @@
    (format "'%s'" msg)))
 
 (setq appt-disp-window-function (function my-appt-display))
+(set-face-foreground 'org-hide "DimGray")
+(set-face-background 'org-scheduled-previously "#3F3F3F")
 
 (setf org-clock-persist 'history)
 (org-clock-persistence-insinuate)

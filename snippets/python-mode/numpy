@@ -4,6 +4,8 @@
 # --
 import numpy as np
 import numpy.linalg as la
+import pandas as pd
+import numpy.random as rn
 import matplotlib.pyplot as plt
 
 def main():

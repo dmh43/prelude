@@ -18,8 +18,13 @@
 ;; set up the call to terminal-notifier
 (defvar my-notifier-path "notify-send")
 (defun my-appt-send-notification (title msg)
-  (shell-command
-   (concat my-notifier-path " -u normal " msg " " title)))
+  (cond
+   ((string= system-type "gnu/linux")
+    (shell-command
+     (concat my-notifier-path " -u normal " msg " " title)))
+   ((string= system-type "darwin")
+    (shell-command
+     (concat "osascript -e 'display notification \"" msg "\" with title \"Org mode " title "\"'" )))))
 
 (defun my-appt-display (min-to-app new-time msg)
   (my-appt-send-notification

@@ -29,6 +29,9 @@
 (require 'harp-mode)
 (require 'emacs-tertestrial)
 
+(require 'midnight)
+(setf midnight-hook '())
+
 (which-key-mode)
 (setq enable-recursive-minibuffers t)
 (rainbow-delimiters-mode)

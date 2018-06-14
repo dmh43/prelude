@@ -24,7 +24,10 @@
      (concat my-notifier-path " -u normal " msg " " title)))
    ((string= system-type "darwin")
     (shell-command
-     (concat "osascript -e 'display notification \"" msg "\" with title \"Org mode " title "\"'" )))))
+     (concat "osascript -e 'display notification \""
+             (substring 1 -1 msg)
+             "\" with title \"Org mode "
+             (substring title 1 -1) "\"'" )))))
 
 (defun my-appt-display (min-to-app new-time msg)
   (my-appt-send-notification

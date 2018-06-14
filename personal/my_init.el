@@ -32,6 +32,9 @@
 (require 'midnight)
 (setf midnight-hook '())
 
+(require 'centered-window)
+(centered-window-mode)
+
 (which-key-mode)
 (setq enable-recursive-minibuffers t)
 (rainbow-delimiters-mode)

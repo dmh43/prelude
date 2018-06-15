@@ -23,16 +23,29 @@
     (shell-command
      (concat my-notifier-path " -u normal " msg " " title)))
    ((string= system-type "darwin")
-    (shell-command
-     (concat "osascript -e 'display notification \""
-             (substring 1 -1 msg)
-             "\" with title \"Org mode "
-             (substring title 1 -1) "\"'" )))))
+    (progn
+      (message (concat "osascript -e 'display notification \""
+                       (substring msg 1 -1)
+                       "\" with title \"Org mode "
+                       (substring title 1 -1) "\"'" ))
+      (shell-command
+       (concat "osascript -e 'display notification \""
+               (substring msg 1 -1)
+               "\" with title \"Org mode "
+               (substring title 1 -1) "\"'" ))))))
 
 (defun my-appt-display (min-to-app new-time msg)
-  (my-appt-send-notification
-   (format "'Appointment in %s minutes'" min-to-app)
-   (format "'%s'" msg)))
+  (if (listp msg)
+      (cl-mapc (lambda (min-to-app new-time msg)
+                 (my-appt-send-notification
+                  (format "'Appointment in %s minutes'" (substring-no-properties min-to-app))
+                  (format "'%s'" (substring-no-properties msg))))
+               min-to-app
+               new-time
+               msg)
+    (my-appt-send-notification
+     (format "'Appointment in %s minutes'" min-to-app)
+     (format "'%s'" (substring-no-properties msg)))))
 
 (setq appt-disp-window-function (function my-appt-display))
 (set-face-foreground 'org-hide "DimGray")

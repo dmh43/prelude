@@ -120,7 +120,15 @@
 (advice-add 'other-frame :before
             (lambda (arg) (prelude-auto-save-command)))
 
-(setf browse-url-browser-function 'browse-url-firefox)
+(cond
+ ((string= system-type "gnu/linux")
+  (progn
+    (setf browse-url-browser-function 'browse-url-firefox)))
+ ((string= system-type "darwin")
+  (progn
+    (setq browse-url-browser-function (quote browse-url-generic))
+    (setq browse-url-generic-program "open"))))
+
 
 (setq tramp-default-method "ssh")
 (setq tramp-auto-save-directory "~/tmp/tramp/")

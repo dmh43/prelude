@@ -34,6 +34,8 @@
 
 (require 'smartparens)
 
+(require 'counsel)
+
 (defvar my-keys-minor-mode-map
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-c DEL") 'winner-undo)
@@ -81,6 +83,7 @@
     (define-key map (kbd "C-M-j") 'mark-to-end-of-paragraph)
     (define-key map (kbd "s-v") 'end-of-coffee-block)
     (define-key map (kbd "s-i") 'other-frame)
+    (define-key map (kbd "M-y") 'counsel-yank-pop)
     (define-key map (kbd "s-2") (lambda (&optional arg)
                                   (interactive)
                                   (split-window-below)

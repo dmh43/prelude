@@ -144,6 +144,8 @@
 (defun s3cmd-put (filepath)
   (start-process "googlecloadput" nil "~/Downloads/google-cloud-sdk/bin/gsutil" "rsync" "/home/dany/org" "gs://dmh-org/"))
 
+(require 'dash)
+
 (advice-add 'save-buffer :after
             (lambda (&optional arg)
               (when (and (boundp 's3-bucket)
@@ -152,8 +154,9 @@
               (when (and (buffer-file-name)
                          (cl-search "gtd.org" (buffer-file-name)))
                 (progn
-                 (org-html-export-to-html)
-                 (s3cmd-put (replace-regexp-in-string "gtd.org" "gtd.html" (buffer-file-name)))))))
+                  (org-html-export-to-html)
+                  (setf kill-ring (rest kill-ring))
+                  (s3cmd-put (replace-regexp-in-string "gtd.org" "gtd.html" (buffer-file-name)))))))
 
 (add-hook 'comint-mode-hook 'turn-off-show-smartparens-mode)
 

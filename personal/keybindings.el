@@ -138,13 +138,13 @@
 (define-key escreen-map "r" 'helm-escreen-rename-escreen)
 (define-key escreen-map "w" 'helm-escreen-current-escreen-name)
 
-(dumb-jump-mode -1)
-(define-key dumb-jump-mode-map (kbd "C-M-p") nil)
-(define-key dumb-jump-mode-map (kbd "C-M-g") nil)
-(define-key dumb-jump-mode-map (kbd "C-M-.") 'dumb-jump-go)
-(define-key dumb-jump-mode-map (kbd "C-x 4 C-M-.") 'dumb-jump-go-other-window)
-(define-key dumb-jump-mode-map (kbd "C-M-,") 'dumb-jump-back)
-(define-key dumb-jump-mode-map (kbd "C-M-j") 'dumb-jump-quick-look)
+;; (dumb-jump-mode -1)
+;; (define-key dumb-jump-mode-map (kbd "C-M-p") nil)
+;; (define-key dumb-jump-mode-map (kbd "C-M-g") nil)
+;; (define-key dumb-jump-mode-map (kbd "C-M-.") 'dumb-jump-go)
+;; (define-key dumb-jump-mode-map (kbd "C-x 4 C-M-.") 'dumb-jump-go-other-window)
+;; (define-key dumb-jump-mode-map (kbd "C-M-,") 'dumb-jump-back)
+;; (define-key dumb-jump-mode-map (kbd "C-M-j") 'dumb-jump-quick-look)
 
 (setq indent-rigidly-map
       (let ((map (make-sparse-keymap)))

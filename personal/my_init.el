@@ -1,9 +1,12 @@
+(setq mac-option-modifier 'meta)
+(setq mac-command-modifier 'super)
+
 (add-to-list 'load-path "~/.emacs.d/personal")
 (load "helpers.el")
 (load "js-config.el")
 (load "keybindings.el")
 (load "keychords.el")
-(load "gnus-config.el")
+;(load "gnus-config.el")
 (load "latex-config.el")
 (load "magit-config.el")
 (load "navigation.el")
@@ -22,8 +25,8 @@
 (load "python-config.el")
 (load "lang-config.el")
 
+
 (require 'which-key)
-(require 'modalka)
 (require 'test-switcher)
 (require 'god-mode)
 (require 'harp-mode)

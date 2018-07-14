@@ -109,6 +109,8 @@
     (define-key map (kbd "<f8> e") 'org-clock-out)
     (define-key map (kbd "<f8> f") 'org-search-view)
     (define-key map (kbd "s-u") 'revert-buffer)
+    (define-key map (kbd "s-f") 'move-to-next-term)
+    (define-key map (kbd "s-b") 'move-to-prev-term)
     map)
   "my-keys-minor-mode keymap.")
 

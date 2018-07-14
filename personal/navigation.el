@@ -12,6 +12,17 @@
     (when (= orig-point (point))
       (move-beginning-of-line 1))))
 
+(defun move-to-next-term ()
+  (interactive)
+  (skip-chars-forward "^, ")
+  (skip-chars-forward "^a-zA-Z"))
+
+(defun move-to-prev-term ()
+  (interactive)
+  (skip-chars-backward "^ ")
+  (skip-chars-backward " ")
+  (skip-chars-backward "^ "))
+
 (defun unpop-to-mark-command ()
   "Unpop off mark ring. Does nothing if mark ring is empty."
   (interactive)

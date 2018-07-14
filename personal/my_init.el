@@ -145,7 +145,8 @@
 
 (defvar s3-bucket)
 (defun s3cmd-put (filepath)
-  (start-process "googlecloadput" nil "~/Downloads/google-cloud-sdk/bin/gsutil" "rsync" "/home/dany/org" "gs://dmh-org/"))
+  ;; (start-process "googlecloadput" nil "~/Downloads/google-cloud-sdk/bin/gsutil" "rsync" "/home/dany/org" "gs://dmh-org/")
+  )
 
 (require 'dash)
 

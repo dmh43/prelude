@@ -12,4 +12,7 @@
 
 (setq-default mode-line-format (cons '(:exec conda-env-current-name) mode-line-format))
 
+(define-key python-mode-map [remap backward-sentence] nil)
+(define-key python-mode-map [remap forward-sentence] nil)
+
 (provide 'python-config)

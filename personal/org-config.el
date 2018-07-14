@@ -127,7 +127,15 @@
     (org-defkey org-mode-map (kbd "s-j") 'windmove-down)
     (org-defkey org-mode-map (kbd "s-h") 'windmove-left)
     (org-defkey org-mode-map (kbd "s-l") 'windmove-right)
-    (org-defkey org-mode-map (kbd "s-k") 'windmove-up)))
+    (org-defkey org-mode-map (kbd "s-k") 'windmove-up)
+    (org-defkey org-mode-map (kbd "s-x f") 'org-metaright)
+    (org-defkey org-mode-map (kbd "s-x b") 'org-metaleft)
+    (org-defkey org-mode-map (kbd "s-x p") 'org-metaup)
+    (org-defkey org-mode-map (kbd "s-x n") 'org-metadown)
+    (org-defkey org-mode-map (kbd "s-x F") 'org-shiftmetaright)
+    (org-defkey org-mode-map (kbd "s-x B") 'org-shiftmetaleft)
+    (org-defkey org-mode-map (kbd "s-x P") 'org-shiftmetaup)
+    (org-defkey org-mode-map (kbd "s-x N") 'org-shiftmetadown)))
 
 (setq org-src-fontify-natively t)
 

@@ -25,7 +25,6 @@
 (load "python-config.el")
 (load "lang-config.el")
 
-
 (require 'which-key)
 (require 'test-switcher)
 (require 'god-mode)
@@ -142,6 +141,8 @@
       (concat
        "-o ControlPath=/tmp/ssh-ControlPath-%%r@%%h:%%p "
        "-o ControlMaster=auto -o ControlPersist=yes"))
+
+(menu-bar-mode 1)
 
 (defvar s3-bucket)
 (defun s3cmd-put (filepath)

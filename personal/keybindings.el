@@ -36,6 +36,9 @@
 
 (require 'counsel)
 
+(require 'multiple-cursors)
+(define-key mc/keymap (kbd "C-'") nil)
+
 (defvar my-keys-minor-mode-map
   (let ((map (make-sparse-keymap)))
     (define-key map (kbd "C-c DEL") 'winner-undo)

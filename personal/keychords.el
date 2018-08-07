@@ -1,7 +1,7 @@
 (require 'key-chord)
 
 (key-chord-mode 1)
-(key-chord-define-global "qq" 'ivy-switch-buffer)
+(key-chord-define-global "qq" 'helm-buffers-list)
 (key-chord-define-global "qw" 'helm-imenu)
 (key-chord-define-global "qp" 'helm-projectile-switch-project)
 (key-chord-define-global "qf" 'helm-projectile-find-file)

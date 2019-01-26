@@ -107,7 +107,7 @@
     (define-key map (kbd "<f8> s") 'org-search-view)
     (define-key map (kbd "<f8> i") (lambda (&optional arg)
                                      (interactive)
-                                     (find-file "~/org/gtd.org")))
+                                     (find-file "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/gtd.org")))
     ;; (define-key map (kbd "M-'") 'dh-isearch-symbol-at-point-smart)
     (define-key map (kbd "<f8> e") 'org-clock-out)
     (define-key map (kbd "<f8> f") 'org-search-view)

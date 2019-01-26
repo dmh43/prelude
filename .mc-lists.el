@@ -6,23 +6,29 @@
         LaTeX-insert-left-brace
         TeX-insert-backslash
         TeX-newline
+        backward-kill-sexp
         better-kill-line
         c-electric-delete-forward
         c-electric-semi&comma
         c-electric-slash
         c-electric-star
         c-indent-line-or-region
+        crux-duplicate-current-line-or-region
         crux-move-beginning-of-line
         delete-horizontal-space
         delete-indentation
         easy-kill
         easy-mark
         forward-sexp
+        indent-for-tab-command
         keyboard-escape-quit
         kill-sexp
         kill-to-end-of-sexp
         mark-at-end-or-copy-line
+        org-beginning-of-line
+        org-delete-char
         org-forward-element
+        org-kill-line
         org-self-insert-command
         paredit-forward-slurp-sexp
         sp-backward-delete-char
@@ -35,6 +41,7 @@
         sp-forward-sexp
         sp-forward-slurp-sexp
         sp-splice-sexp
+        sp-splice-sexp-killing-backward
         sp-up-sexp
         transpose-sexps
         zop-up-to-char
@@ -43,4 +50,7 @@
 (setq mc/cmds-to-run-once
       '(
         counsel-M-x
+        helm-M-x
+        mark-paragraph
+        sp-remove-active-pair-overlay
         ))

@@ -10,12 +10,12 @@
 (load "latex-config.el")
 (load "magit-config.el")
 (load "navigation.el")
-(load "org-config.el")
 (load "term-config.el")
 (load "web-config.el")
 (load "windows.el")
 (load "yas-conf.el")
 (load "stump-config.el")
+(load "org-config.el")
 (load "os-config.el")
 (load "cl-config.el")
 (load "my-secrets.el")
@@ -24,6 +24,7 @@
 (load "cuda-config.el")
 (load "python-config.el")
 (load "lang-config.el")
+
 
 (require 'which-key)
 (require 'test-switcher)

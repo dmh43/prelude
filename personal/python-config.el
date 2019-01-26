@@ -2,9 +2,9 @@
 
 (setf python-indent-offset 2)
 
+(exec-path-from-shell-copy-env "ANACONDA_HOME")
 (require 'conda)
 (conda-env-autoactivate-mode t)
-(setf conda-anaconda-home "/Users/danyhaddad/miniconda3")
 (conda-env-initialize-interactive-shells)
 (conda-env-initialize-eshell)
 
@@ -16,5 +16,23 @@
 (define-key python-mode-map [remap forward-sentence] nil)
 (define-key python-mode-map (kbd "C-M-<backspace>") 'sp-backward-kill-sexp)
 (define-key python-mode-map (kbd "C-M-k") 'sp-kill-sexp)
+
+(remove-hook 'python-mode-hook (car(last python-mode-hook)))
+
+(defun my-python-mode-defaults ()
+  (subword-mode +1)
+  (anaconda-mode 1)
+  (eldoc-mode 1)
+  (when (fboundp #'python-imenu-create-flat-index)
+    (setq-local imenu-create-index-function
+                #'python-imenu-create-flat-index))
+  (add-hook 'post-self-insert-hook
+            #'electric-layout-post-self-insert-function nil 'local)
+  (add-hook 'after-save-hook 'prelude-python-mode-set-encoding nil 'local))
+
+(setq my-python-mode-hook 'my-python-mode-defaults)
+
+(add-hook 'python-mode-hook (lambda ()
+                              (run-hooks 'my-python-mode-hook)))
 
 (provide 'python-config)

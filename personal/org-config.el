@@ -112,7 +112,7 @@
                                                          (sql . t)
                                                          (sqlite . t)))
 
-(setq org-agenda-files '((concat my-org-path "Documents/org/")))
+(setq org-agenda-files (list my-org-path))
 (setq org-refile-targets '((org-agenda-files . (:maxlevel . 2))))
 (eval-after-load "org"
   (lambda ()

@@ -242,9 +242,6 @@
 (define-key boon-moves-map "I"  (lambda () (interactive) (scroll-up-command 3)))
 (define-key boon-x-map "y"  'undo-tree-redo)
 
-(add-hook 'after-save-hook
-          'boon-set-command-state)
-
 (defadvice keyboard-quit (around my-keyboard-quit activate)
   "quit sets boon cmd state"
   (unwind-protect

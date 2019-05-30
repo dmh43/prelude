@@ -241,6 +241,9 @@
 (define-key boon-moves-map "E"  (lambda () (interactive) (scroll-down-command 3)))
 (define-key boon-moves-map "I"  (lambda () (interactive) (scroll-up-command 3)))
 (define-key boon-x-map "y"  'undo-tree-redo)
+(define-key boon-command-map (kbd "C-q") 'boon-set-command-state)
+(define-key boon-special-map (kbd "C-q") 'boon-set-command-state)
+(define-key boon-insert-map (kbd "C-q") 'boon-set-command-state)
 
 
 (provide 'keybindings)

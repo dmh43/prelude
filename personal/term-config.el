@@ -3,7 +3,7 @@
   (interactive)
   (with-temp-buffer
     (let* ((dir (projectile-project-root))
-           (multi-term-buffer-name (string-join `(,(projectile-project-name) "term") " "))
+           (multi-term-buffer-name (concat `(,(projectile-project-name) "term") " "))
            (default-directory dir))
       (multi-term)
       (rename-buffer multi-term-buffer-name))))

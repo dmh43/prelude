@@ -107,13 +107,15 @@
     (define-key map (kbd "<f8> s") 'org-search-view)
     (define-key map (kbd "<f8> i") (lambda (&optional arg)
                                      (interactive)
-                                     (find-file "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/gtd.org")))
+                                     (find-file (concat my-org-path "gtd.org"))))
     ;; (define-key map (kbd "M-'") 'dh-isearch-symbol-at-point-smart)
     (define-key map (kbd "<f8> e") 'org-clock-out)
     (define-key map (kbd "<f8> f") 'org-search-view)
     (define-key map (kbd "s-u") 'revert-buffer)
     (define-key map (kbd "s-f") 'move-to-next-term)
     (define-key map (kbd "s-b") 'move-to-prev-term)
+    (define-key map (kbd "s-r") (lambda () (interactive) (scroll-down-command 3)))
+    (define-key map (kbd "s-e") (lambda () (interactive) (scroll-up-command 3)))
     map)
   "my-keys-minor-mode keymap.")
 
@@ -226,14 +228,28 @@
 (global-unset-key (kbd "s-e"))
 (global-unset-key (kbd "s-r"))
 
-(define-key prelude-mode-map (kbd "s-e") (lambda () (interactive) (scroll-up-command 3)))
-(define-key prelude-mode-map (kbd "s-r") (lambda () (interactive) (scroll-down-command 3)))
-
 (define-key prelude-mode-map (kbd "s-h") nil)
 (define-key prelude-mode-map (kbd "s-j") nil)
 (define-key prelude-mode-map (kbd "s-k") nil)
 (define-key prelude-mode-map (kbd "s-l") nil)
 
 (define-key global-map (kbd "C-x C-c") nil)
+
+(require 'boon)
+(define-key boon-moves-map "O"  'scroll-up)
+(define-key boon-moves-map "N"  'scroll-down)
+(define-key boon-moves-map "E"  (lambda () (interactive) (scroll-down-command 3)))
+(define-key boon-moves-map "I"  (lambda () (interactive) (scroll-up-command 3)))
+(define-key boon-x-map "y"  'undo-tree-redo)
+
+(add-hook 'after-save-hook
+          'boon-set-command-state)
+
+(defadvice keyboard-quit (around my-keyboard-quit activate)
+  "quit sets boon cmd state"
+  (unwind-protect
+      ad-do-it
+    (call-interactively 'boon-set-command-state)))
+
 
 (provide 'keybindings)

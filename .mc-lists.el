@@ -3,54 +3,48 @@
 
 (setq mc/cmds-to-run-for-all
       '(
-        LaTeX-insert-left-brace
-        TeX-insert-backslash
-        TeX-newline
+        backward-char
         backward-kill-sexp
+        backward-word
         better-kill-line
-        c-electric-delete-forward
-        c-electric-semi&comma
-        c-electric-slash
-        c-electric-star
-        c-indent-line-or-region
-        crux-duplicate-current-line-or-region
         crux-move-beginning-of-line
         delete-horizontal-space
         delete-indentation
+        downcase-region
         easy-kill
         easy-mark
-        forward-sexp
+        end-of-buffer
+        forward-char
+        forward-word
+        helm-show-kill-ring
         indent-for-tab-command
         keyboard-escape-quit
-        kill-sexp
         kill-to-end-of-sexp
         mark-at-end-or-copy-line
-        org-beginning-of-line
-        org-delete-char
-        org-forward-element
-        org-kill-line
+        move-past-close-and-reindent
+        next-line
+        org-end-of-line
         org-self-insert-command
-        paredit-forward-slurp-sexp
+        self-insert-command
+        set-mark-command
         sp-backward-delete-char
         sp-backward-down-sexp
-        sp-backward-kill-word
         sp-backward-sexp
         sp-backward-up-sexp
         sp-delete-char
         sp-down-sexp
         sp-forward-sexp
         sp-forward-slurp-sexp
+        sp-kill-hybrid-sexp
         sp-splice-sexp
-        sp-splice-sexp-killing-backward
         sp-up-sexp
-        transpose-sexps
-        zop-up-to-char
+        undefined
+        upcase-region
         ))
 
 (setq mc/cmds-to-run-once
       '(
-        counsel-M-x
         helm-M-x
-        mark-paragraph
-        sp-remove-active-pair-overlay
+        indent-region
+        mc/keyboard-quit
         ))

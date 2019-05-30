@@ -23,4 +23,4 @@
 (defun open-git-project (clone-path git-path)
   (let ((dir-name (git-dir-name git-path)))
     (helm-escreen-create-screen dir-name)
-    (find-file (string-join clone-path dir-name))))
+    (find-file (concat clone-path dir-name))))

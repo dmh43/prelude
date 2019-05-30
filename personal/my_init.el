@@ -1,6 +1,8 @@
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'super)
 
+(setq my-org-path "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/")
+
 (add-to-list 'load-path "~/.emacs.d/personal")
 (load "helpers.el")
 (load "js-config.el")

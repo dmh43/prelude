@@ -1,6 +1,6 @@
 (require 'org)
 
-(setf diary-file "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/diary")
+(setf diary-file (concat my-org-path "diary"))
 
 (setf org-agenda-include-diary t)
 
@@ -57,24 +57,24 @@
 (setf org-clock-into-drawer 3)
 
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/gtd.org" "unfiled")
+      '(("t" "Todo" entry (file+headline (concat my-org-path "gtd.org") "unfiled")
          "* TODO %?\n %i\n")
-        ("a" "Ask about" entry (file+headline "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/gtd.org" "Ask about")
+        ("a" "Ask about" entry (file+headline (concat my-org-path "gtd.org") "Ask about")
          "* %?\n  %i\n")
-        ("r" "Review" entry (file+headline "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/gtd.org" "Review")
+        ("r" "Review" entry (file+headline (concat my-org-path "gtd.org") "Review")
          "* TODO %?\n  %i\n")
-        ("c" "Clocked Todo" entry (file+headline "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/gtd.org" "unfiled")
+        ("c" "Clocked Todo" entry (file+headline (concat my-org-path "gtd.org") "unfiled")
          "* TODO %?\n  %i\n" :clock-in t)
-        ("m" "Misc" entry (file+headline "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/gtd.org" "Misc")
+        ("m" "Misc" entry (file+headline (concat my-org-path "gtd.org") "Misc")
          "* TODO %?\n  %i\n")
-        ("j" "Journal" entry (file+datetree "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/journal.org")
+        ("j" "Journal" entry (file+datetree (concat my-org-path "journal.org"))
          "* %?\nEntered on %U\n  %i\n")
-        ("l" "Look Here" entry (file+headline "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/gtd.org" "Look Here")
+        ("l" "Look Here" entry (file+headline (concat my-org-path "gtd.org") "Look Here")
          "* TODO %?\n %i\n %a\n")
-        ;; ("r" "Remember this" entry (file+datetree "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/remember.org")
+        ;; ("r" "Remember this" entry (file+datetree (concat my-org-path "remember.org"))
         ;;  "* %?\nEntered on %U\n  %i\n  %a\nSCHEDULED: %^t")
         ("s" "Appointment" entry
-         (file+headline "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/gtd.org" "Appointments")
+         (file+headline (concat my-org-path "gtd.org") "Appointments")
          "* %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t) t)")
         ))
 
@@ -112,7 +112,7 @@
                                                          (sql . t)
                                                          (sqlite . t)))
 
-(setq org-agenda-files '("~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/"))
+(setq org-agenda-files '((concat my-org-path "Documents/org/")))
 (setq org-refile-targets '((org-agenda-files . (:maxlevel . 2))))
 (eval-after-load "org"
   (lambda ()

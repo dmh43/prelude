@@ -35,4 +35,6 @@
 (add-hook 'python-mode-hook (lambda ()
                               (run-hooks 'my-python-mode-hook)))
 
+(setq anaconda-mode-localhost-address "127.0.0.1")
+
 (provide 'python-config)

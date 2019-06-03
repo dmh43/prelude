@@ -70,7 +70,6 @@
     (define-key map (kbd "s-a") 'move-to-first-alpha)
     (define-key map (kbd "s-b") 'up-one-coffee-block)
     (define-key map (kbd "C-M-y") 'yank-and-pop)
-    (define-key map (kbd "C-M-i") 'hippie-expand)
     (define-key map (kbd "s-t") (lambda ()
                                   (interactive)
                                   (if (eq major-mode
@@ -126,6 +125,7 @@
   :lighter "")
 
 (my-keys-minor-mode 1)
+
 (add-to-list 'emulation-mode-map-alists `((my-keys-minor-mode . ,my-keys-minor-mode-map)))
 
 (require 'crux)

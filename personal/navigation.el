@@ -104,8 +104,11 @@
 
 (defun chomp (str)
   "Chomp leading and tailing whitespace from STR."
-  (replace-regexp-in-string (rx (or (: bos (* (any " \t\n")))
-                                    (: (* (any " \t\n")) eos)))
+  (replace-regexp-in-string (rx (or (: bos (or (* (any "\t\n"))
+                                               (>= 2 (any " "))))
+                                    (: (or (* (any "\t\n"))
+                                           (>= 2 (any " ")))
+                                       eos)))
                             ""
                             str))
 

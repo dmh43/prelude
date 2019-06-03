@@ -1,10 +1,7 @@
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'super)
 
-(setq my-org-path
-      (if (file-directory-p "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/")
-          "~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/"
-        "~/org/"))
+(setq my-org-path "~/Box/org/")
 
 (add-to-list 'load-path "~/.emacs.d/personal")
 (load "helpers.el")

@@ -116,6 +116,7 @@
     (define-key map (kbd "s-b") 'move-to-prev-term)
     (define-key map (kbd "s-r") (lambda () (interactive) (scroll-down-command 3)))
     (define-key map (kbd "s-e") (lambda () (interactive) (scroll-up-command 3)))
+    (define-key map (kbd "C-z") 'repeat)
     map)
   "my-keys-minor-mode keymap.")
 
@@ -125,6 +126,7 @@
   :lighter "")
 
 (my-keys-minor-mode 1)
+(add-to-list 'emulation-mode-map-alists `((my-keys-minor-mode . ,my-keys-minor-mode-map)))
 
 (require 'crux)
 (defun better-kill-line (&optional arg)

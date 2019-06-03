@@ -116,6 +116,7 @@
     (define-key map (kbd "s-r") (lambda () (interactive) (scroll-down-command 3)))
     (define-key map (kbd "s-e") (lambda () (interactive) (scroll-up-command 3)))
     (define-key map (kbd "C-z") 'repeat)
+    (define-key map (kbd "C-M-SPC") 'sp-mark-sexp)
     map)
   "my-keys-minor-mode keymap.")
 
@@ -129,11 +130,14 @@
 (add-to-list 'emulation-mode-map-alists `((my-keys-minor-mode . ,my-keys-minor-mode-map)))
 
 (require 'crux)
+
 (defun better-kill-line (&optional arg)
   (interactive "p")
   (if mark-active
       (kill-region (region-beginning) (region-end))
-    (crux-kill-whole-line arg)))
+    (move-beginning-of-line nil)
+    (kill-line arg)
+    (move-to-mode-line-start)))
 
 (defun dh-make-org-scratch ()
   (interactive)

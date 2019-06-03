@@ -36,6 +36,7 @@
         sp-forward-sexp
         sp-forward-slurp-sexp
         sp-kill-hybrid-sexp
+        sp-mark-sexp
         sp-splice-sexp
         sp-up-sexp
         undefined

@@ -59,7 +59,7 @@
     (define-key map (kbd "C-M-<backspace>") 'backward-kill-sexp)
     (define-key map (kbd "M-l") 'move-to-window-line-top-bottom)
     (define-key map (kbd "C-<return>") 'move-past-close-and-reindent)
-    (define-key map (kbd "C-c t") 'term-project-root)
+    ;; (define-key map (kbd "C-c t") 'term-project-root)
     (define-key map (kbd "M-)") 'kill-to-end-of-sexp)
     (define-key map (kbd "M-(") 'kill-to-beginning-of-sexp)
     (define-key map (kbd "C-M-q") 'unfill-region)

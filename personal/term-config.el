@@ -1,12 +1,12 @@
 (require 'projectile)
-(defun term-project-root ()
-  (interactive)
-  (with-temp-buffer
-    (let* ((dir (projectile-project-root))
-           (multi-term-buffer-name (concat `(,(projectile-project-name) "term") " "))
-           (default-directory dir))
-      (multi-term)
-      (rename-buffer multi-term-buffer-name))))
+;; (defun term-project-root ()
+;;   (interactive)
+;;   (with-temp-buffer
+;;     (let* ((dir (projectile-project-root))
+;;            (multi-term-buffer-name (concat `(,(projectile-project-name) "term") " "))
+;;            (default-directory dir))
+;;       (multi-term)
+;;       (rename-buffer multi-term-buffer-name))))
 
 (add-hook 'term-mode-hook (lambda () (company-mode -1)))
 
@@ -81,7 +81,7 @@
 (require 'term)
 (define-key term-raw-map (kbd "C-\\") nil)
 
-(require 'multi-term)
-(setq multi-term-program "/bin/zsh")
+;; (require 'multi-term)
+;; (setq multi-term-program "/bin/zsh")
 
 (provide 'term-config)

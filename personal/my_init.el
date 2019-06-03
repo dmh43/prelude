@@ -8,7 +8,7 @@
 (load "js-config.el")
 (load "keybindings.el")
 (load "keychords.el")
-;(load "gnus-config.el")
+                                        ;(load "gnus-config.el")
 (load "latex-config.el")
 (load "magit-config.el")
 (load "navigation.el")

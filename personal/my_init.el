@@ -114,7 +114,7 @@
 
 (setf prelude-clean-whitespace-on-save nil)
 (require 'ws-butler)
-(setf ws-butler-keep-whitespace-before-point nil)
+(setf ws-butler-keep-whitespace-before-point t)
 (ws-butler-global-mode)
 (add-to-list 'ws-butler-global-exempt-modes 'org-mode)
 

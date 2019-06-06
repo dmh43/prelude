@@ -155,4 +155,8 @@
                      (setq org-map-continue-from (outline-previous-heading)))
                    "/DONE" 'file))
 
+(setq org-priority-faces '((?A . (:foreground "firebrick" :weight bold))
+                           (?B . (:foreground "DarkOrange3"))
+                           (?C . (:foreground "ForestGreen"))))
+
 (provide 'org-config)

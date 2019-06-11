@@ -39,12 +39,12 @@
 
 (key-chord-define-global ";\\" 'helm-escreen-select-escreen)
 
-(key-chord-define-global "uu" 'undo-tree-undo)
-(key-chord-define-global "yy" 'undo-tree-redo)
+(key-chord-define-global "uu" 'undo)
+;; (key-chord-define-global "yy" 'undo-tree-redo)
 (key-chord-define-global "lj" nil)
 (key-chord-define-global "ww" nil)
 (key-chord-define-global "JJ" nil)
-(key-chord-define-global "NN" 'crux-switch-to-previous-buffer)
+;; (key-chord-define-global "NN" 'crux-switch-to-previous-buffer)
 
 (provide 'keychords)
 ;;; keychords ends here

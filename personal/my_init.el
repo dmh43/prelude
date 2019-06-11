@@ -3,6 +3,10 @@
 
 (setq my-org-path "~/Box/org/")
 
+;; (require 'dash)
+;; (setq prelude-packages
+;;       (-remove-item 'undo-tree prelude-packages))
+
 (add-to-list 'load-path "~/.emacs.d/personal")
 (load "helpers.el")
 (load "js-config.el")

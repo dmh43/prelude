@@ -116,6 +116,7 @@
     (define-key map (kbd "s-e") (lambda () (interactive) (scroll-up-command 3)))
     (define-key map (kbd "C-z") 'repeat)
     (define-key map (kbd "C-M-SPC") 'sp-mark-sexp)
+    (define-key map (kbd "s-d") 'avy-goto-word-1)
     map)
   "my-keys-minor-mode keymap.")
 

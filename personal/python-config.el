@@ -2,11 +2,14 @@
 
 (setf python-indent-offset 2)
 
-(exec-path-from-shell-copy-env "ANACONDA_HOME")
+;; (exec-path-from-shell-copy-env "ANACONDA_HOME")
 (require 'conda)
+(setq-default conda-project-env-name "def")
 (conda-env-autoactivate-mode t)
 (conda-env-initialize-interactive-shells)
 (conda-env-initialize-eshell)
+(custom-set-variables
+ '(conda-anaconda-home "/Users/dhaddad/anaconda3"))
 
 (setq-default mode-line-format (cons '(:exec conda-env-current-name) mode-line-format))
 

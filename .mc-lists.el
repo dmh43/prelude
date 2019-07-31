@@ -19,6 +19,7 @@
         helm-show-kill-ring
         indent-for-tab-command
         keyboard-escape-quit
+        kill-to-beginning-of-sexp
         kill-to-end-of-sexp
         mark-at-end-or-copy-line
         move-past-close-and-reindent
@@ -36,6 +37,7 @@
         sp-forward-sexp
         sp-forward-slurp-sexp
         sp-kill-hybrid-sexp
+        sp-kill-sexp
         sp-mark-sexp
         sp-splice-sexp
         sp-up-sexp
@@ -45,6 +47,7 @@
 
 (setq mc/cmds-to-run-once
       '(
+        ace-window
         helm-M-x
         indent-region
         mc/keyboard-quit

@@ -240,6 +240,7 @@
 (define-key prelude-mode-map (kbd "s-l") nil)
 
 (define-key global-map (kbd "C-x C-c") nil)
+(define-key prelude-mode-map (kbd "s-g") nil)
 
 ;; (require 'boon)
 ;; (boon-mode)

@@ -116,7 +116,8 @@
 
 (setq company-tooltip-flip-when-above nil)
 
-(setf prelude-clean-whitespace-on-save nil)
+(setq prelude-whitespace nil)
+;; (setf prelude-clean-whitespace-on-save nil)
 (require 'ws-butler)
 (setf ws-butler-keep-whitespace-before-point t)
 (ws-butler-global-mode)

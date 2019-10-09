@@ -1,5 +1,8 @@
 (require 'org)
+(require 'ox-latex)
 
+(setq org-latex-pdf-process (list "latexmk -pdf -bibtex %f"))
+(setq org-latex-pdf-process '("%latex -interaction nonstopmode -output-directory %o %f" "%latex -interaction nonstopmode -output-directory %o %f" "%latex -interaction nonstopmode -output-directory %o %f"))
 (setf diary-file (concat my-org-path "diary"))
 
 (setf org-agenda-include-diary t)
